@@ -1,6 +1,13 @@
 
 import pygame
 
+def drawRobot(screen,x,y):
+	# draw robot body (square)
+        pygame.draw.rect(screen,BLUE, (x,y,robotSize,robotSize))
+        # draw robot eyes (circles)
+        pygame.draw.circle(screen,WHITE,(x+10,y+10),5)
+        pygame.draw.circle(screen,WHITE,(x+30,y+10),5)
+        
 
 pygame.init()
 pygame.joystick.init()
@@ -22,10 +29,11 @@ robotY = SCREENHEIGHT // 2
 robotSpeed = 5
 robotSize = 40
 
-def drawRobot(screen,x,y):
-	# draw robot body (square)
-        pygame.draw.rect(screen,BLUE, (x,y,robotSize,robotSize))
-        # draw robot eyes (circles)
-        pygame.draw.circle(screen,WHITE,(x+10,y+10),5)
-        pygame.draw.circle(screen,WHITE,(x+30,y+10),5)
-        
+joysticks = []
+for i in range(pygame.joystick.get_count()):
+        joystick = pygame.joystick.Joystick(i)
+        joystick.init()
+        joysticks.append(joystick)
+        print(f"found joystick: {joystick.get_name()}({joystick.get_id()})")
+
+
