@@ -14,3 +14,8 @@ WHITE = (255,255,255)
 BLUE = (0,0,255)
 PURPLE = (128,64,192)
 
+robotX = SCREENWIDTH // 2
+robotY = SCREENHEIGHT // 2
+
+robotSpeed = 5
+robotSize = 40
